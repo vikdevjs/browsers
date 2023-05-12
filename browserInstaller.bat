@@ -1,4 +1,5 @@
 @echo off
+cls
 color C
 title Installer by Vik
 echo -------------------------------------------------
