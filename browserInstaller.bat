@@ -1,5 +1,4 @@
 @echo off
-cls
 color C
 title Installer by Vik
 echo -------------------------------------------------
@@ -45,37 +44,6 @@ if /I "%choice%" EQU "dev" GOTO c_dev
 if /I "%choice%" EQU "beta" GOTO c_beta
 if /I "%choice%" EQU "canary" GOTO c_canary
 
-:firefox_op
-cls
-echo Name                   Command           source
-echo -----------------------------------------------------
-echo Mozilla Firefox         Command: firefox    winget
-echo Mozilla Firefox Dev     Command: dev        winget
-echo Mozilla Firefox Beta    Command: beta       winget
-echo Mozilla Firefox ESR     Command: esr        winget
-echo.
-set /p choice= 
-if /I "%choice%" EQU "Standard" GOTO firefox
-if /I "%choice%" EQU "dec" GOTO f_dev
-if /I "%choice%" EQU "beta" GOTO f_beta
-if /I "%choice%" EQU "esr" GOTO f_esr
-
-:brave_op
-cls
-echo Name                Command          source
-echo ---------------------------------------------
-echo Brave            Command: brave      winget
-echo Brave Nightly    Command: nightly    winget
-echo Brave Beta       Command: beta       winget
-echo Brave Dev        Command: dev        winget
-echo.
-set /p choice= 
-if /I "%choice%" EQU "Standard" GOTO brave
-if /I "%choice%" EQU "dev" GOTO b_dev
-if /I "%choice%" EQU "beta" GOTO b_beta
-if /I "%choice%" EQU "canary" GOTO b_nightly
-
-
 :chrome
 cls
 pause>nul|set/p = Press any key to install ...
@@ -104,6 +72,21 @@ winget install Google.Chrome.Canary
 pause>nul|set/p = chrome canary installed press any key to exit
 GOTO END
 
+:firefox_op
+cls
+echo Name                   Command           source
+echo -----------------------------------------------------
+echo Mozilla Firefox         Command: firefox    winget
+echo Mozilla Firefox Dev     Command: dev        winget
+echo Mozilla Firefox Beta    Command: beta       winget
+echo Mozilla Firefox ESR     Command: esr        winget
+echo.
+set /p choice= 
+if /I "%choice%" EQU "Standard" GOTO firefox
+if /I "%choice%" EQU "dec" GOTO f_dev
+if /I "%choice%" EQU "beta" GOTO f_beta
+if /I "%choice%" EQU "esr" GOTO f_esr
+
 :firefox
 cls
 pause>nul|set/p = Press any key to install ...
@@ -131,6 +114,23 @@ pause>nul|set/p = Press any key to install ...
 winget install Mozilla.Firefox.ESR
 pause>nul|set/p = Firefox ESR installed press any key to exit
 GOTO END
+
+
+:brave_op
+cls
+echo Name                Command          source
+echo ---------------------------------------------
+echo Brave            Command: brave      winget
+echo Brave Nightly    Command: nightly    winget
+echo Brave Beta       Command: beta       winget
+echo Brave Dev        Command: dev        winget
+echo.
+set /p choice= 
+if /I "%choice%" EQU "Standard" GOTO brave
+if /I "%choice%" EQU "dev" GOTO b_dev
+if /I "%choice%" EQU "beta" GOTO b_beta
+if /I "%choice%" EQU "canary" GOTO b_nightly
+
 
 :brave
 cls
